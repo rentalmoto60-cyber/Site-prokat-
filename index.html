@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="theme-color" content="#0E0E0C">
-<meta name="description" content="Прокат эндуро мотоциклов и тренировки с Олегом. 4 года опыта, полная экипировка, эксклюзивные маршруты. Обучение с нуля для взрослых и детей.">
-<meta property="og:title" content="RentalMoto — Эндуро тренировки. Олег учит и катает">
-<meta property="og:description" content="Покори бездорожье безопасно. Я — Олег, инструктор и хозяин проката. Учу с нуля, экипировка моя, маршруты — мои.">
+<meta name="description" content="Прокат эндуро мотоциклов и тренировки с Максимом. 6 лет инструктором, 10+ лет в эндуро. Полная экипировка, эксклюзивные маршруты. Обучение с нуля для взрослых и детей.">
+<meta property="og:title" content="Rental Moto — Эндуро тренировки. Максим учит и катает">
+<meta property="og:description" content="Покори бездорожье безопасно. Я — Максим, инструктор и хозяин проката. 10+ лет в эндуро, 6 лет учу с нуля.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://rentalmoto.example/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<title>RentalMoto — Эндуро тренировки с Олегом. Прокат мотоциклов с инструктором</title>
+<title>Rental Moto — Эндуро тренировки с Максимом. Прокат мотоциклов с инструктором</title>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E0E0C'/%3E%3Cpath d='M4 0 L28 0 L24 32 L4 32 Z' fill='%23D4F542'/%3E%3Ctext x='14' y='22' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%230E0E0C' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 
@@ -23,12 +23,20 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "RentalMoto",
-  "description": "Прокат эндуро мотоциклов и обучающие тренировки с Олегом",
+  "@id": "https://rentalmoto.example/#org",
+  "name": "Rental Moto",
+  "description": "Прокат эндуро мотоциклов и обучающие тренировки с Максимом",
   "telephone": "+7-900-000-00-00",
   "priceRange": "$$",
   "openingHours": "Mo-Su 09:00-21:00",
-  "founder": { "@type": "Person", "name": "Олег" }
+  "founder": { "@type": "Person", "name": "Максим" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "30",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
 }
 </script>
 
@@ -263,6 +271,30 @@ section{padding:120px 0;position:relative;scroll-margin-top:100px}
 .toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(100px);background:var(--acid);color:var(--coal);padding:14px 22px;border-radius:999px;font-weight:600;font-size:.92rem;box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:300;opacity:0;transition:transform .35s ease,opacity .35s ease;pointer-events:none;max-width:90vw;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 
+/* REVIEWS */
+.reviews{background:var(--coal)}
+.reviews-meta{display:flex;align-items:center;gap:18px;margin-top:16px;flex-wrap:wrap}
+.reviews-rating{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.85rem;opacity:.9}
+.reviews-rating .stars{display:inline-flex;gap:2px;color:var(--acid);font-size:1.1rem;letter-spacing:1px}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.review{background:var(--coal);padding:36px 32px;display:flex;flex-direction:column;gap:18px;transition:background .3s;min-height:280px;position:relative}
+.review:hover{background:var(--coal-2)}
+.review:hover .review-quote{color:var(--acid)}
+.review-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.review-author{display:flex;flex-direction:column;gap:4px}
+.review-name{font-family:'Anton',sans-serif;font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em}
+.review-date{font-family:'JetBrains Mono',monospace;font-size:.72rem;opacity:.6;letter-spacing:.05em}
+.review-stars{color:var(--acid);font-size:1.05rem;letter-spacing:2px;flex-shrink:0;line-height:1}
+.review-quote{font-family:'Anton',sans-serif;font-size:2.4rem;color:var(--mud);line-height:1;transition:color .3s}
+.review-text{font-size:.97rem;line-height:1.6;opacity:.92;flex-grow:1}
+.review-source{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.05em}
+.review-source span{opacity:.6;text-transform:uppercase}
+.review-source a{color:var(--acid);display:inline-flex;align-items:center;gap:6px;transition:opacity .2s}
+.review-source a:hover{opacity:.7}
+.reviews-cta{margin-top:48px;text-align:center;font-family:'Caveat',cursive;font-size:1.3rem;color:var(--acid);opacity:.9}
+.reviews-cta a{border-bottom:1px solid var(--acid)}
+.reviews-cta a:hover{opacity:.7}
+
 /* FAQ */
 .faq{background:var(--coal-2)}
 .faq-list{max-width:880px;margin:0 auto}
@@ -317,15 +349,16 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
 <a href="#main" class="sr-only">Перейти к содержимому</a>
 
 <nav class="nav" id="nav" aria-label="Главная навигация">
-  <a href="#top" class="logo" aria-label="RentalMoto — на главную">
+  <a href="#top" class="logo" aria-label="Rental Moto — на главную">
     <div class="logo-mark" aria-hidden="true">R</div>
-    <span>RentalMoto</span>
+    <span>Rental Moto</span>
   </a>
   <div class="nav-links">
     <a href="#about">Кто я</a>
     <a href="#services">Услуги</a>
     <a href="#routes">Маршруты</a>
     <a href="#gear">Экипировка</a>
+    <a href="#reviews">Отзывы</a>
     <a href="#faq">FAQ</a>
   </div>
   <a href="#booking" class="nav-cta">Записаться →</a>
@@ -340,6 +373,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
   <a href="#services">Услуги</a>
   <a href="#routes">Маршруты</a>
   <a href="#gear">Экипировка</a>
+  <a href="#reviews">Отзывы</a>
   <a href="#faq">FAQ</a>
   <a href="#booking" class="btn btn-primary">Записаться</a>
 </div>
@@ -350,13 +384,13 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
   <div class="hero-noise" aria-hidden="true"></div>
   <div class="hero-grid">
     <div>
-      <div class="hero-tag mono"><span>4-й сезон в эндуро</span></div>
+      <div class="hero-tag mono"><span>10+ лет в эндуро · 6 лет учу</span></div>
       <h1 class="display" id="heroTitle">
         Грязь.<br>
         <span class="acid">Скорость.</span><br>
         <span class="outline">Свобода.</span>
       </h1>
-      <div class="hero-signature">Я&nbsp;— Олег. Инструктор и хозяин проката.</div>
+      <div class="hero-signature">Я&nbsp;— Максим. Инструктор и хозяин проката.</div>
       <p class="hero-sub">Учу с нуля, экипирую, везу по маршрутам, которые нашёл сам. Без посредников, без «эффективных менеджеров». Приехал — сел — поехал.</p>
       <div class="hero-cta">
         <a href="#booking" class="btn btn-primary">Записаться на тренировку <span class="btn-arrow" aria-hidden="true">↗</span></a>
@@ -364,8 +398,8 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
       </div>
     </div>
     <div class="hero-stats" role="group" aria-label="Ключевые показатели">
-      <div class="stat"><div class="stat-num">04</div><div class="stat-lbl">Года опыта</div></div>
-      <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Учеников</div></div>
+      <div class="stat"><div class="stat-num">06</div><div class="stat-lbl">Лет инструктором</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Лет в эндуро</div></div>
       <div class="stat"><div class="stat-num">15</div><div class="stat-lbl">Маршрутов</div></div>
     </div>
   </div>
@@ -412,13 +446,13 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
     <span>Полная экипировка</span><span class="dot">●</span>
     <span class="acid">15 маршрутов</span><span class="dot">●</span>
     <span>Дети от 8 лет</span><span class="dot">●</span>
-    <span class="acid">4-й сезон</span><span class="dot">●</span>
+    <span class="acid">6 лет учу</span><span class="dot">●</span>
     <span>ENDURO</span><span class="dot">●</span>
     <span class="acid">Обучение с нуля</span><span class="dot">●</span>
     <span>Полная экипировка</span><span class="dot">●</span>
     <span class="acid">15 маршрутов</span><span class="dot">●</span>
     <span>Дети от 8 лет</span><span class="dot">●</span>
-    <span class="acid">4-й сезон</span><span class="dot">●</span>
+    <span class="acid">6 лет учу</span><span class="dot">●</span>
   </div>
 </div>
 
@@ -427,7 +461,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
     Я не учу <span class="strike">крутым трюкам</span>.<br>
     Я учу <span class="acid">возвращаться домой</span><br>
     с улыбкой и без гипса.
-    <div class="manifest-attr">Олег, RentalMoto</div>
+    <div class="manifest-attr">Максим, Rental Moto</div>
   </blockquote>
 </section>
 
@@ -466,8 +500,8 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
         </svg>
 
         <div class="portrait-name">
-          <span class="hand">Олег</span>
-          <span>// RentalMoto founder</span>
+          <span class="hand">Максим</span>
+          <span>// Rental Moto founder</span>
         </div>
 
         <div class="portrait-roles">
@@ -480,8 +514,8 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
       <div class="about-text reveal">
         <div class="section-tag">01 / Кто я</div>
         <h2 id="aboutTitle">Один человек —<br>и инструктор,<br>и хозяин проката.</h2>
-        <p>Меня зовут <strong>Олег</strong>. RentalMoto — это не сетевой бизнес и не «школа от профи». Это я. Я сам выбираю мотоциклы, сам делаю им ТО, сам выезжаю с тобой на маршрут.</p>
-        <p>4 года в эндуро как инструктор, 12 — за рулём. Подготовил 500+ учеников от 8 до 62 лет. Не гонюсь за «крутыми трюками» — вкладываюсь в технику и безопасность. Лучший комплимент — когда ученик через сезон возвращается уже на своём мотоцикле.</p>
+        <p>Меня зовут <strong>Максим</strong>. Rental Moto — это не сетевой бизнес и не «школа от профи». Это я. Сам выбираю мотоциклы, сам делаю им ТО, сам выезжаю с тобой на маршрут.</p>
+        <p>В эндуро пришёл с детства, прошёл через мотокросс — больше <strong>10 лет за рулём</strong>, <strong>6 лет учу</strong> других. За плечами — спортивный бэкграунд (КМС), привычка работать на технику и дисциплину, а не на показуху. Не гонюсь за «крутыми трюками» — вкладываюсь в технику и безопасность. Лучший комплимент — когда ученик через сезон возвращается уже на своём мотоцикле.</p>
 
         <ul class="utp-list">
           <li class="utp"><div class="utp-icon" aria-hidden="true">✓</div><p>Тебя встречаю лично — никаких администраторов</p></li>
@@ -541,8 +575,8 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
 <section class="trust" aria-label="Цифры">
   <div class="container">
     <div class="trust-grid reveal">
-      <div class="trust-item"><div class="trust-num">04</div><div class="trust-label">Сезона работы</div><div class="trust-sub">с 2022 года, без перерывов</div></div>
-      <div class="trust-item"><div class="trust-num">500+</div><div class="trust-label">Учеников за плечами</div><div class="trust-sub">от 8 до 62 лет</div></div>
+      <div class="trust-item"><div class="trust-num">06</div><div class="trust-label">Лет инструктором</div><div class="trust-sub">+ 10 лет в эндуро</div></div>
+      <div class="trust-item"><div class="trust-num">500+</div><div class="trust-label">Учеников за плечами</div><div class="trust-sub">от 6 до 62 лет</div></div>
       <div class="trust-item"><div class="trust-num">15</div><div class="trust-label">Эксклюзивных маршрутов</div><div class="trust-sub">от лёгких до экспертных</div></div>
       <div class="trust-item"><div class="trust-num">0</div><div class="trust-label">Серьёзных травм</div><div class="trust-sub">безопасность — приоритет №1</div></div>
     </div>
@@ -683,11 +717,193 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
   </div>
 </section>
 
+<section class="reviews" id="reviews" aria-labelledby="reviewsTitle">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-tag">06 / Отзывы</div>
+        <h2 class="section-title" id="reviewsTitle">Что говорят<br>ученики</h2>
+        <div class="reviews-meta">
+          <div class="reviews-rating">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span>5.0 / 5 · 30+ отзывов на Авито</span>
+          </div>
+        </div>
+      </div>
+      <p style="max-width:340px;opacity:.88;font-size:.95rem">Ниже — выдержки с Авито (профиль <strong>Rental Moto</strong>). Кликни по «Оригинал» — откроется реальный отзыв с фото клиента.</p>
+    </div>
+
+    <div class="reviews-grid reveal">
+
+      <!-- Отзыв 1 · Наталья -->
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" content="Rental Moto">
+        <div class="review-head">
+          <div class="review-author">
+            <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Наталья</span>
+            </div>
+            <div class="review-date">
+              <time itemprop="datePublished" datetime="2024-09-13">13 сентября 2024 · Свидание на мотоциклах</time>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="Оценка 5 из 5" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-quote" aria-hidden="true">“</div>
+        <p class="review-text" itemprop="reviewBody">Всем советую и рекомендую! Максим очень внимательный, вежливый и очень спокойно реагировал на моё знакомство с мотоциклом (я в первый раз села сегодня). Эмоции и адреналин зашкаливают до сих пор! Благодарим Вас за вашу работу и положительные эмоции ❤️</p>
+        <div class="review-source">
+          <span>Источник: Авито</span>
+          <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer" aria-label="Открыть отзыв на Авито">Оригинал ↗</a>
+        </div>
+      </article>
+
+      <!-- Отзыв 2 · Гузель -->
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" content="Rental Moto">
+        <div class="review-head">
+          <div class="review-author">
+            <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Гузель</span>
+            </div>
+            <div class="review-date">
+              <time itemprop="datePublished" datetime="2024-09-11">11 сентября 2024 · Прокат и обучение для детей</time>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="Оценка 5 из 5" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-quote" aria-hidden="true">“</div>
+        <p class="review-text" itemprop="reviewBody">Искала прокат для сыновей 7 и 14 лет. Со старшим проблем не возникло, а младшему сложно было подобрать технику по росту. Связалась с автором — на следующий день дети уже катались. Серьёзный подход к экипировке и инструктажу. Максим — большой молодец, дети в восторге.</p>
+        <div class="review-source">
+          <span>Источник: Авито</span>
+          <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer" aria-label="Открыть отзыв на Авито">Оригинал ↗</a>
+        </div>
+      </article>
+
+      <!-- Отзыв 3 · Алина -->
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" content="Rental Moto">
+        <div class="review-head">
+          <div class="review-author">
+            <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Алина</span>
+            </div>
+            <div class="review-date">
+              <time itemprop="datePublished" datetime="2024-07-18">18 июля 2024 · Мотопрокат</time>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="Оценка 5 из 5" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-quote" aria-hidden="true">“</div>
+        <p class="review-text" itemprop="reviewBody">Учились с подругой кататься на эндуро. Инструктор — профи: всё доступно объяснял, относился с пониманием, контролировал процесс. Первый час — учились, второй — катались по маршруту вслед за Максимом. Сделал нам профессиональные фото и видео. Рекомендую 🔥</p>
+        <div class="review-source">
+          <span>Источник: Авито</span>
+          <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer" aria-label="Открыть отзыв на Авито">Оригинал ↗</a>
+        </div>
+      </article>
+
+      <!-- Отзыв 4 · Сергей Данилов -->
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" content="Rental Moto">
+        <div class="review-head">
+          <div class="review-author">
+            <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Сергей Данилов</span>
+            </div>
+            <div class="review-date">
+              <time itemprop="datePublished" datetime="2025-06-17">17 июня 2025 · Эндуро туры с обучением</time>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="Оценка 5 из 5" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-quote" aria-hidden="true">“</div>
+        <p class="review-text" itemprop="reviewBody">Всё прошло великолепно. Дети 6 и 8 лет через 20 минут уверенно самостоятельно управляли. Максим — отличный инструктор, всё подробно и очень доходчиво объяснил и показал. Однозначно приедем ещё. Дети в восторге, просят купить мото.</p>
+        <div class="review-source">
+          <span>Источник: Авито</span>
+          <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer" aria-label="Открыть отзыв на Авито">Оригинал ↗</a>
+        </div>
+      </article>
+
+      <!-- Отзыв 5 · Андрей -->
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" content="Rental Moto">
+        <div class="review-head">
+          <div class="review-author">
+            <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Андрей</span>
+            </div>
+            <div class="review-date">
+              <time itemprop="datePublished" datetime="2025-05-05">5 мая 2025 · Эндуро туры с обучением</time>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="Оценка 5 из 5" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-quote" aria-hidden="true">“</div>
+        <p class="review-text" itemprop="reviewBody">Списались на Авито, созвонились, Максим всё рассказал про маршруты и технику. Техника хорошая, исправная. Маршрут очень понравился — прямые дороги где можно разогнаться, лесные тропы, скалы, река… Очень красиво, не уезжая далеко из города. Идеально для отдыха.</p>
+        <div class="review-source">
+          <span>Источник: Авито</span>
+          <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer" aria-label="Открыть отзыв на Авито">Оригинал ↗</a>
+        </div>
+      </article>
+
+      <!-- Отзыв 6 · Евгения -->
+      <article class="review" itemscope itemtype="https://schema.org/Review">
+        <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" content="Rental Moto">
+        <div class="review-head">
+          <div class="review-author">
+            <div class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">Евгения</span>
+            </div>
+            <div class="review-date">
+              <time itemprop="datePublished" datetime="2024-08-26">26 августа 2024 · Свидание на мотоциклах</time>
+            </div>
+          </div>
+          <div class="review-stars" aria-label="Оценка 5 из 5" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-quote" aria-hidden="true">“</div>
+        <p class="review-text" itemprop="reviewBody">16 августа у нас с супругом 16-я годовщина свадьбы. Я устроила ему сюрприз — мотосвидание с Максимом. Очень заботливый и внимательный инструктор: всё подробно объяснил и показал, помогал во время поездки. Маршрут разнообразный, виды красивые. Попали под дождь — получилось экстремально и незабываемо!</p>
+        <div class="review-source">
+          <span>Источник: Авито</span>
+          <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer" aria-label="Открыть отзыв на Авито">Оригинал ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="reviews-cta">
+      Все отзывы — <a href="https://www.avito.ru/user/REPLACE_ID/reviews" target="_blank" rel="noopener noreferrer">смотреть на Авито</a>
+    </div>
+  </div>
+</section>
+
 <section class="faq" id="faq" aria-labelledby="faqTitle">
   <div class="container">
     <div class="section-head reveal">
       <div>
-        <div class="section-tag">06 / Вопросы</div>
+        <div class="section-tag">07 / Вопросы</div>
         <h2 class="section-title" id="faqTitle">Что обычно<br>спрашивают</h2>
       </div>
     </div>
@@ -727,9 +943,9 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
   <div class="container">
     <div class="foot-grid">
       <div class="foot-col foot-about">
-        <div class="logo" style="margin-bottom:18px"><div class="logo-mark" aria-hidden="true">R</div><span>RentalMoto</span></div>
-        <p>Эндуро тренировки и прокат мотоциклов с 2022 года. Учу, экипирую, везу по лучшим маршрутам.</p>
-        <div class="foot-sign">Олег</div>
+        <div class="logo" style="margin-bottom:18px"><div class="logo-mark" aria-hidden="true">R</div><span>Rental Moto</span></div>
+        <p>Эндуро тренировки и прокат мотоциклов. Сам учу, сам обслуживаю технику, сам вожу по маршрутам. Больше 10 лет в эндуро.</p>
+        <div class="foot-sign">Максим</div>
         <div class="socials" aria-label="Социальные сети">
           <a href="#" aria-label="Instagram">IG</a>
           <a href="#" aria-label="Telegram">TG</a>
@@ -743,6 +959,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
         <a href="#services">Услуги</a>
         <a href="#routes">Маршруты</a>
         <a href="#gear">Экипировка</a>
+        <a href="#reviews">Отзывы</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="foot-col">
@@ -760,7 +977,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
       </div>
     </div>
     <div class="copyright">
-      <span>© 2026 RentalMoto. Все права защищены.</span>
+      <span>© 2026 Rental Moto. Все права защищены.</span>
       <span>Сделано с грязью под ногтями</span>
     </div>
   </div>
