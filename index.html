@@ -13,7 +13,7 @@
 <meta property="og:image:height" content="630">
 <title>Rental Moto — Эндуро тренировки с Максимом. Прокат мотоциклов с инструктором</title>
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E0E0C'/%3E%3Cpath d='M4 0 L28 0 L24 32 L4 32 Z' fill='%23D4F542'/%3E%3Ctext x='14' y='22' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%230E0E0C' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,6 +80,7 @@ section{padding:120px 0;position:relative;scroll-margin-top:100px}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);background:rgba(14,14,12,.72);border-bottom:1px solid var(--line);transition:transform .4s ease}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.04em}
 .logo-mark{width:36px;height:36px;background:var(--acid);color:var(--coal);display:grid;place-items:center;font-weight:700;clip-path:polygon(0 0,100% 0,85% 100%,0 100%)}
+.logo-img{width:44px;height:44px;border-radius:50%;display:block;flex-shrink:0}
 .nav-links{display:none;gap:32px}
 .nav-links a{font-size:.92rem;opacity:.9;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--acid)}
@@ -116,7 +117,16 @@ section{padding:120px 0;position:relative;scroll-margin-top:100px}
 .stat:last-child{border-right:none}
 .stat-num{font-family:'Anton',sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);color:var(--acid);line-height:1}
 .stat-lbl{font-size:.78rem;opacity:.7;margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
-.hero-bike{position:absolute;right:-100px;bottom:-50px;width:60vw;max-width:780px;z-index:1;opacity:.85;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));animation:floatY 6s ease-in-out infinite}
+.hero-bike{
+  position:absolute;right:0;bottom:0;top:0;
+  width:50vw;max-width:680px;
+  z-index:1;
+  object-fit:cover;object-position:center;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 25%,black 100%);
+          mask-image:linear-gradient(90deg,transparent 0%,black 25%,black 100%);
+  filter:saturate(1.05) contrast(1.05);
+  animation:floatY 8s ease-in-out infinite;
+}
 @media(max-width:999px){.hero-bike{display:none}}
 .scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.2em;opacity:.6;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-cue::after{content:"";width:1px;height:40px;background:var(--bone);animation:scrollLine 2s infinite}
@@ -135,12 +145,45 @@ section{padding:120px 0;position:relative;scroll-margin-top:100px}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* MANIFEST */
-.manifest{background:var(--coal);padding:120px 0 100px;border-bottom:1px solid var(--line)}
-.manifest-quote{max-width:1100px;margin:0 auto;padding:0 24px;font-family:'Anton',sans-serif;font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1.05;text-transform:uppercase;letter-spacing:.005em}
+.manifest{
+  background:var(--coal);padding:160px 0 140px;border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.manifest::before{
+  content:"";position:absolute;inset:0;
+  background:url('assets/group.jpg') center 80%/cover no-repeat;
+  opacity:.18;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,black 30%,black 70%,transparent 100%);
+          mask-image:linear-gradient(180deg,transparent 0%,black 30%,black 70%,transparent 100%);
+  filter:grayscale(.4) contrast(1.1);
+  z-index:0;
+}
+.manifest::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%,transparent 0%,var(--coal) 80%);
+}
+.manifest-quote{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 24px;font-family:'Anton',sans-serif;font-size:clamp(1.8rem,4.5vw,3.6rem);line-height:1.05;text-transform:uppercase;letter-spacing:.005em}
 .manifest-quote .acid{color:var(--acid)}
 .manifest-quote .strike{text-decoration:line-through;text-decoration-color:var(--rust);text-decoration-thickness:4px;opacity:.45}
 .manifest-attr{margin-top:36px;display:flex;align-items:center;gap:16px;font-family:'Caveat',cursive;font-size:1.4rem;color:var(--acid)}
 .manifest-attr::before{content:"";width:48px;height:1px;background:var(--acid)}
+
+/* KIDS SPOTLIGHT */
+.kids{background:var(--coal-2);padding:0;overflow:hidden;scroll-margin-top:100px}
+.kids-grid{display:grid;gap:0;align-items:stretch}
+@media(min-width:900px){.kids-grid{grid-template-columns:1fr 1fr}}
+.kids-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--coal)}
+@media(min-width:900px){.kids-img{aspect-ratio:auto;min-height:560px}}
+.kids-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.kids-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--coal-2) 100%);pointer-events:none}
+.kids-text{padding:80px 24px;display:flex;flex-direction:column;justify-content:center;max-width:560px}
+@media(min-width:900px){.kids-text{padding:80px 60px 80px 0}}
+.kids-text .section-tag{color:var(--rust)}
+.kids-text h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,3.2rem);line-height:.95;margin-bottom:24px;text-transform:uppercase}
+.kids-text h2 .acid{color:var(--acid)}
+.kids-text p{opacity:.92;font-size:1.02rem;line-height:1.6;margin-bottom:14px}
+.kids-text p strong{color:var(--acid);font-weight:600}
+.kids-cta{margin-top:24px;display:inline-flex;align-self:flex-start}
 
 /* SECTIONS */
 .section-head{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:64px}
@@ -152,15 +195,15 @@ section{padding:120px 0;position:relative;scroll-margin-top:100px}
 .about{background:var(--bone);color:var(--coal)}
 .about-layout{display:grid;gap:60px}
 @media(min-width:900px){.about-layout{grid-template-columns:1fr 1.15fr;gap:80px;align-items:center}}
-.portrait{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--rust) 0%,#8a3413 50%,var(--mud) 100%)}
-.portrait::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23gn)'/%3E%3C/svg%3E");opacity:.4;mix-blend-mode:overlay}
-.portrait-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
-.portrait-roles{position:absolute;left:24px;right:24px;bottom:24px;z-index:3;display:flex;gap:10px;flex-wrap:wrap}
-.role-chip{background:var(--coal);color:var(--acid);padding:10px 14px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:var(--coal-2)}
+.portrait-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;z-index:1}
+.portrait::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(14,14,12,.55) 0%,transparent 30%,transparent 60%,rgba(14,14,12,.7) 100%);pointer-events:none}
+.portrait-roles{position:absolute;left:24px;right:24px;bottom:24px;z-index:3;display:flex;gap:8px;flex-wrap:wrap}
+.role-chip{background:var(--coal);color:var(--acid);padding:8px 12px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
 .role-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acid);box-shadow:0 0 8px var(--acid)}
 .role-chip.b{background:var(--acid);color:var(--coal)}
 .role-chip.b::before{background:var(--coal);box-shadow:none}
-.portrait-name{position:absolute;top:24px;left:24px;z-index:3;background:rgba(14,14,12,.85);backdrop-filter:blur(8px);padding:14px 18px;border-radius:14px}
+.portrait-name{position:absolute;left:24px;bottom:74px;z-index:3;background:rgba(14,14,12,.88);backdrop-filter:blur(8px);padding:12px 16px;border-radius:14px;border:1px solid var(--line)}
 .portrait-name .hand{display:block;color:var(--acid);font-size:1.6rem;line-height:1}
 .portrait-name span{display:block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;opacity:.7;margin-top:4px;color:var(--bone)}
 
@@ -350,7 +393,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
 
 <nav class="nav" id="nav" aria-label="Главная навигация">
   <a href="#top" class="logo" aria-label="Rental Moto — на главную">
-    <div class="logo-mark" aria-hidden="true">R</div>
+    <img src="assets/logo.png" alt="Rental Moto" width="44" height="44" class="logo-img">
     <span>Rental Moto</span>
   </a>
   <div class="nav-links">
@@ -404,37 +447,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
     </div>
   </div>
 
-  <svg class="hero-bike" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Эндуро мотоцикл" preserveAspectRatio="xMidYMax meet">
-    <defs>
-      <linearGradient id="bikeG" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#D4F542"/>
-        <stop offset="1" stop-color="#C84B1F"/>
-      </linearGradient>
-    </defs>
-    <circle cx="120" cy="240" r="80" fill="none" stroke="#0E0E0C" stroke-width="20"/>
-    <circle cx="120" cy="240" r="80" fill="none" stroke="#15150F" stroke-width="14"/>
-    <circle cx="120" cy="240" r="30" fill="#0E0E0C"/>
-    <circle cx="120" cy="240" r="8" fill="#D4F542"/>
-    <circle cx="480" cy="240" r="80" fill="none" stroke="#0E0E0C" stroke-width="20"/>
-    <circle cx="480" cy="240" r="80" fill="none" stroke="#15150F" stroke-width="14"/>
-    <circle cx="480" cy="240" r="30" fill="#0E0E0C"/>
-    <circle cx="480" cy="240" r="8" fill="#D4F542"/>
-    <path d="M150 200 Q220 110 290 130 L380 130 Q420 130 440 180 L460 220" stroke="url(#bikeG)" stroke-width="14" fill="none" stroke-linecap="round"/>
-    <path d="M290 130 L260 200 L150 200" stroke="#F2EFE6" stroke-width="10" fill="none" stroke-linecap="round" opacity=".9"/>
-    <path d="M280 100 Q310 70 380 80 L390 130 L290 130 Z" fill="#D4F542"/>
-    <path d="M310 95 L370 95" stroke="#0E0E0C" stroke-width="3"/>
-    <path d="M210 140 Q260 125 300 130 L290 150 L210 155 Z" fill="#0E0E0C"/>
-    <path d="M400 60 L460 100" stroke="#0E0E0C" stroke-width="10" stroke-linecap="round"/>
-    <path d="M390 50 L420 65" stroke="#F2EFE6" stroke-width="8" stroke-linecap="round"/>
-    <path d="M460 100 L480 240" stroke="#15150F" stroke-width="8"/>
-    <path d="M250 170 Q220 170 200 180 L150 200" stroke="#C84B1F" stroke-width="6" fill="none"/>
-    <g opacity=".6">
-      <circle cx="60" cy="280" r="6" fill="#5C4A33"/>
-      <circle cx="40" cy="260" r="4" fill="#5C4A33"/>
-      <circle cx="540" cy="290" r="5" fill="#5C4A33"/>
-      <circle cx="560" cy="270" r="3" fill="#5C4A33"/>
-    </g>
-  </svg>
+  <img class="hero-bike" src="assets/hero-action.jpg" alt="Максим в экипировке на мотоцикле" width="1200" height="1600" loading="eager" fetchpriority="high">
 
   <div class="scroll-cue mono" aria-hidden="true">scroll</div>
 </section>
@@ -468,36 +481,8 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
 <section class="about" id="about" aria-labelledby="aboutTitle">
   <div class="container">
     <div class="about-layout">
-      <div class="portrait reveal" aria-hidden="true">
-        <svg class="portrait-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="prtG" x1="0.5" y1="0" x2="0.5" y2="1">
-              <stop offset="0" stop-color="#0E0E0C" stop-opacity="0"/>
-              <stop offset="1" stop-color="#0E0E0C" stop-opacity="0.7"/>
-            </linearGradient>
-            <linearGradient id="visorG" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#D4F542"/>
-              <stop offset="1" stop-color="#9bbf28"/>
-            </linearGradient>
-          </defs>
-          <path d="M60 500 L60 400 Q90 340 200 330 Q310 340 340 400 L340 500 Z" fill="#0E0E0C"/>
-          <path d="M140 420 L260 420 L240 500 L160 500 Z" fill="#15150F"/>
-          <path d="M170 430 L230 430" stroke="#D4F542" stroke-width="2" opacity=".4"/>
-          <path d="M165 455 L235 455" stroke="#D4F542" stroke-width="2" opacity=".3"/>
-          <rect x="180" y="295" width="40" height="50" fill="#15150F"/>
-          <ellipse cx="200" cy="200" rx="115" ry="130" fill="#0E0E0C"/>
-          <ellipse cx="200" cy="180" rx="115" ry="130" fill="url(#prtG)"/>
-          <path d="M85 200 Q85 70 200 70 Q315 70 315 200 L315 240 Q280 230 200 230 Q120 230 85 240 Z" fill="#0E0E0C"/>
-          <path d="M100 240 Q100 320 200 330 Q300 320 300 240 Q280 220 200 220 Q120 220 100 240 Z" fill="#15150F"/>
-          <path d="M110 170 Q110 130 200 125 Q290 130 290 170 L290 215 Q200 225 110 215 Z" fill="url(#visorG)"/>
-          <path d="M130 145 Q130 135 175 135 Q175 145 160 160 Q145 170 130 165 Z" fill="#F2EFE6" opacity=".25"/>
-          <path d="M110 170 Q110 130 200 125 Q290 130 290 170" stroke="#0E0E0C" stroke-width="6" fill="none"/>
-          <rect x="180" y="85" width="40" height="6" fill="#D4F542" opacity=".8"/>
-          <rect x="170" y="98" width="60" height="4" fill="#D4F542" opacity=".4"/>
-          <path d="M95 195 L120 195" stroke="#C84B1F" stroke-width="4"/>
-          <path d="M280 195 L305 195" stroke="#C84B1F" stroke-width="4"/>
-          <path d="M155 290 Q200 305 245 290" stroke="#5C4A33" stroke-width="4" fill="none"/>
-        </svg>
+      <div class="portrait reveal">
+        <img class="portrait-img" src="assets/portrait.jpg" alt="Максим, инструктор Rental Moto" width="900" height="1200" loading="lazy">
 
         <div class="portrait-name">
           <span class="hand">Максим</span>
@@ -579,6 +564,21 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
       <div class="trust-item"><div class="trust-num">500+</div><div class="trust-label">Учеников за плечами</div><div class="trust-sub">от 6 до 62 лет</div></div>
       <div class="trust-item"><div class="trust-num">15</div><div class="trust-label">Эксклюзивных маршрутов</div><div class="trust-sub">от лёгких до экспертных</div></div>
       <div class="trust-item"><div class="trust-num">0</div><div class="trust-label">Серьёзных травм</div><div class="trust-sub">безопасность — приоритет №1</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="kids" aria-labelledby="kidsTitle">
+  <div class="kids-grid">
+    <div class="kids-img reveal">
+      <img src="assets/kid-bike.jpg" alt="Ребёнок в полной экипировке на детском эндуро мотоцикле" width="900" height="1350" loading="lazy">
+    </div>
+    <div class="kids-text reveal">
+      <div class="section-tag">+ / Дети с 8 лет</div>
+      <h2>Детская группа.<br>Даже если <span class="acid">никогда не пробовал.</span></h2>
+      <p>Отдельные мотоциклы под рост ребёнка, защита подобрана по размеру, темп — спокойный. Не «отдай и не мешай», а полноценное обучение.</p>
+      <p>В отзывах родителей чаще всего звучит одно: <strong>«через 20 минут поехал сам»</strong>. И это не магия — это правильная техника, экипировка и инструктор, который умеет говорить с ребёнком, а не на ребёнка.</p>
+      <a href="#booking" class="btn btn-primary kids-cta">Записать ребёнка <span class="btn-arrow" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -943,7 +943,7 @@ footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--lin
   <div class="container">
     <div class="foot-grid">
       <div class="foot-col foot-about">
-        <div class="logo" style="margin-bottom:18px"><div class="logo-mark" aria-hidden="true">R</div><span>Rental Moto</span></div>
+        <div class="logo" style="margin-bottom:18px"><img src="assets/logo.png" alt="Rental Moto" width="44" height="44" class="logo-img"><span>Rental Moto</span></div>
         <p>Эндуро тренировки и прокат мотоциклов. Сам учу, сам обслуживаю технику, сам вожу по маршрутам. Больше 10 лет в эндуро.</p>
         <div class="foot-sign">Максим</div>
         <div class="socials" aria-label="Социальные сети">
