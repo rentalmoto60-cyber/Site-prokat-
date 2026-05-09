@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0E0E0C">
+<meta name="description" content="Прокат эндуро мотоциклов и тренировки с инструктором. 4 года опыта, полная экипировка, эксклюзивные маршруты. Обучение с нуля для взрослых и детей.">
+<meta property="og:title" content="RentalMoto — Эндуро тренировки и прокат мотоциклов">
+<meta property="og:description" content="Покори бездорожье безопасно. Инструктор, экипировка, маршруты — всё включено.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rentalmoto.example/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<title>RentalMoto — Эндуро тренировки. Прокат мотоциклов с инструктором</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E0E0C'/%3E%3Cpath d='M14 14h36v36H14z' fill='none' stroke='%23D4F542' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Arial Black,sans-serif' font-size='24' font-weight='900' fill='%23D4F542' text-anchor='middle'%3ERM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "RentalMoto",
+  "description": "Прокат эндуро мотоциклов и обучающие тренировки",
+  "telephone": "+7-900-000-00-00",
+  "priceRange": "$$",
+  "openingHours": "Mo-Su 09:00-21:00",
+  "founder": {"@type": "Person", "name": "Главный инструктор и владелец RentalMoto"}
+}
+</script>
+
+<style>
+:root{
+  --coal:#0E0E0C;
+  --coal-2:#15150F;
+  --bone:#F2EFE6;
+  --acid:#D4F542;
+  --rust:#C84B1F;
+  --mud:#5C4A33;
+  --line:rgba(242,239,230,.16);
+  --text-soft:rgba(242,239,230,.88);
+  --max:1320px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background:var(--coal);
+  color:var(--bone);
+  line-height:1.5;
+  overflow-x:hidden;
+  font-feature-settings:"ss01","ss02";
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+section{scroll-margin-top:100px}
+
+/* ============ A11Y FOCUS ============ */
+:focus{outline:none}
+:focus-visible{
+  outline:2px solid var(--acid);
+  outline-offset:3px;
+  border-radius:4px;
+}
+.btn:focus-visible, .nav-cta:focus-visible{outline-offset:4px}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.display{font-family:'Anton',sans-serif;letter-spacing:.01em;line-height:.9;text-transform:uppercase;font-weight:400}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
+.script{font-family:'Caveat',cursive;font-weight:600}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ============ BRAND LOGO ============ */
+.logo{
+  display:flex;align-items:center;gap:12px;
+  font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.04em;
+}
+.logo-mark{
+  position:relative;
+  width:42px;height:42px;
+  background:var(--acid);color:var(--coal);
+  display:grid;place-items:center;
+  font-family:'Anton',sans-serif;font-weight:400;font-size:1.05rem;letter-spacing:.04em;
+  border-radius:8px;
+  flex-shrink:0;
+}
+.logo-mark::after{
+  content:"";position:absolute;
+  top:3px;right:3px;width:6px;height:6px;
+  background:var(--rust);border-radius:50%;
+}
+.logo-text{display:flex;flex-direction:column;gap:0;line-height:1}
+.logo-text small{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.58rem;letter-spacing:.18em;
+  opacity:.55;font-weight:400;
+  margin-top:3px;
+  text-transform:uppercase;
+}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(12px);
+  background:rgba(14,14,12,.65);
+  border-bottom:1px solid var(--line);
+  transition:transform .4s ease;
+}
+.nav-links{display:none;gap:32px}
+.nav-links a{font-size:.92rem;opacity:.88;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--acid)}
+.nav-cta{padding:10px 20px;background:var(--acid);color:var(--coal);font-weight:600;font-size:.88rem;border-radius:999px;transition:transform .2s}
+.nav-cta:hover{transform:translateY(-2px)}
+.burger{display:flex;flex-direction:column;gap:5px;width:32px;padding:6px}
+.burger span{height:2px;background:var(--bone);display:block}
+@media(min-width:900px){
+  .nav-links{display:flex}
+  .burger{display:none}
+}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;
+  position:relative;
+  padding:120px 24px 60px;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(212,245,66,.08), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 70%, rgba(200,75,31,.12), transparent 60%),
+    var(--coal);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:80px 80px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+  pointer-events:none;
+  opacity:.5;
+}
+.hero-noise{
+  position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-grid{
+  position:relative;z-index:2;width:100%;
+  max-width:var(--max);margin:0 auto;
+  display:grid;gap:48px;
+}
+@media(min-width:1000px){
+  .hero-grid{grid-template-columns:1.3fr 1fr;align-items:end}
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 14px;border:1px solid var(--line);border-radius:999px;
+  margin-bottom:32px;
+  animation:fadeUp .8s ease both;
+}
+.hero-tag::before{content:"";width:8px;height:8px;background:var(--acid);border-radius:50%;box-shadow:0 0 12px var(--acid);animation:pulse 2s infinite}
+.hero h1{
+  font-size:clamp(3rem,9vw,7.5rem);
+  margin-bottom:28px;
+  animation:fadeUp 1s .15s ease both;
+}
+.hero h1 .acid{color:var(--acid)}
+.hero h1 .outline{
+  -webkit-text-stroke:2px var(--bone);
+  color:transparent;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.4vw,1.18rem);
+  max-width:540px;
+  color:var(--text-soft);
+  margin-bottom:40px;
+  animation:fadeUp 1s .3s ease both;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;animation:fadeUp 1s .45s ease both;margin-bottom:48px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 28px;
+  font-weight:600;font-size:.98rem;
+  border-radius:999px;
+  transition:transform .25s ease,background .2s;
+  min-height:48px;
+}
+.btn-primary{background:var(--acid);color:var(--coal)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);background:#E0FF5A}
+.btn-ghost{border:1px solid var(--bone);color:var(--bone)}
+.btn-ghost:hover{background:var(--bone);color:var(--coal)}
+.btn-arrow{transition:transform .2s}
+.btn:hover .btn-arrow{transform:translate(4px,-4px)}
+
+/* Личное сообщение от хозяина — ярлык */
+.owner-note{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:14px 18px 14px 16px;
+  border:1px dashed rgba(212,245,66,.4);
+  border-radius:14px;
+  background:rgba(212,245,66,.04);
+  max-width:520px;
+  animation:fadeUp 1s .55s ease both;
+}
+.owner-note-mark{
+  width:38px;height:38px;flex-shrink:0;
+  border-radius:50%;
+  background:var(--rust);
+  display:grid;place-items:center;
+  font-family:'Anton',sans-serif;color:var(--bone);
+  font-size:.95rem;
+}
+.owner-note p{
+  font-size:.9rem;line-height:1.4;color:var(--text-soft);
+}
+.owner-note p strong{color:var(--acid);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;display:block;margin-bottom:4px;text-transform:uppercase}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid var(--line);
+  padding-top:28px;
+  animation:fadeUp 1s .6s ease both;
+}
+.stat{padding:0 16px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Anton',sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);color:var(--acid);line-height:1}
+.stat-lbl{font-size:.78rem;opacity:.7;margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+
+.hero-bike{
+  position:absolute;
+  right:-100px;bottom:-50px;
+  width:60vw;max-width:780px;
+  z-index:1;opacity:.85;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));
+  animation:floatY 6s ease-in-out infinite;
+}
+@media(max-width:999px){.hero-bike{display:none}}
+
+.scroll-cue{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-size:.72rem;letter-spacing:.2em;opacity:.55;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-cue::after{content:"";width:1px;height:40px;background:var(--bone);animation:scrollLine 2s infinite}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============ MARQUEE ============ */
+.marquee{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--coal-2);
+  padding:22px 0;overflow:hidden;
+  display:flex;gap:60px;
+  white-space:nowrap;
+}
+.marquee-track{display:flex;gap:60px;animation:scroll 40s linear infinite;font-family:'Anton',sans-serif;font-size:1.6rem;letter-spacing:.04em}
+.marquee-track span{color:var(--bone);opacity:.9}
+.marquee-track span.acid{color:var(--acid);opacity:1}
+.marquee-track .dot{color:var(--rust)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+section{padding:120px 0;position:relative}
+@media(max-width:760px){section{padding:80px 0}}
+.section-head{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:64px}
+.section-tag{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acid);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-tag::before{content:"";width:30px;height:1px;background:var(--acid)}
+.section-title{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,5.5vw,4.8rem);line-height:.95;max-width:900px;text-transform:uppercase}
+
+/* ============ SERVICES ============ */
+.services{background:var(--coal)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.service{
+  background:var(--coal);
+  padding:40px 32px;
+  display:flex;flex-direction:column;
+  transition:background .3s;
+  position:relative;
+  min-height:380px;
+}
+.service:hover{background:var(--coal-2)}
+.service:hover .service-num{color:var(--acid);transform:scale(1.1)}
+.service-num{font-family:'Anton',sans-serif;font-size:3rem;color:var(--mud);margin-bottom:24px;transition:all .3s;align-self:flex-start}
+.service h3{font-family:'Anton',sans-serif;font-size:1.7rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:14px}
+.service-desc{font-size:.96rem;color:var(--text-soft);flex-grow:1;margin-bottom:24px}
+.service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.service-tags span{font-size:.74rem;font-family:'JetBrains Mono',monospace;padding:5px 10px;border:1px solid var(--line);border-radius:999px;opacity:.85}
+.service-price{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--acid);margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.service-arrow{transition:transform .3s;font-size:1.2rem}
+.service:hover .service-arrow{transform:translate(6px,-6px);color:var(--acid)}
+
+/* ============ TRUST STRIP ============ */
+.trust{
+  background:var(--bone);color:var(--coal);
+  padding:80px 0;
+}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:48px}
+.trust-item{display:flex;flex-direction:column;gap:8px}
+.trust-num{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1;color:var(--rust)}
+.trust-label{font-weight:600;font-size:1.05rem}
+.trust-sub{font-size:.88rem;opacity:.75}
+
+/* ============ ROUTES ============ */
+.routes{background:var(--coal-2)}
+.routes-list{display:flex;flex-direction:column;gap:0;list-style:none}
+.route{
+  display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:center;
+  padding:36px 0;
+  border-top:1px solid var(--line);
+  cursor:pointer;
+  transition:all .3s;
+  position:relative;
+  width:100%;text-align:left;
+}
+.routes-list li:last-child .route{border-bottom:1px solid var(--line)}
+.route:hover{padding-left:24px;background:linear-gradient(90deg,rgba(212,245,66,.04),transparent)}
+.route-num{font-family:'JetBrains Mono',monospace;font-size:.85rem;opacity:.6}
+.route-info h3{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);text-transform:uppercase;margin-bottom:6px;transition:color .3s}
+.route:hover .route-info h3{color:var(--acid)}
+.route-info p{font-size:.92rem;color:var(--text-soft);max-width:560px}
+.route-meta{display:flex;flex-direction:column;align-items:end;gap:8px}
+.diff{font-family:'JetBrains Mono',monospace;font-size:.74rem;padding:4px 10px;border-radius:4px;letter-spacing:.05em}
+.diff-1{background:rgba(212,245,66,.2);color:var(--acid)}
+.diff-2{background:rgba(200,75,31,.25);color:#FF7A4A}
+.diff-3{background:rgba(255,255,255,.14);color:var(--bone)}
+.route-km{font-size:.85rem;opacity:.75}
+@media(max-width:680px){
+  .route{grid-template-columns:1fr;gap:12px}
+  .route-meta{flex-direction:row;align-items:center;justify-content:space-between}
+}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed;
+  left:50%;bottom:30px;
+  transform:translate(-50%,200%);
+  background:var(--acid);color:var(--coal);
+  padding:14px 22px;border-radius:999px;
+  font-weight:600;font-size:.92rem;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+  z-index:300;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+  max-width:90%;text-align:center;
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* ============ GEAR & SAFETY ============ */
+.gear{background:var(--coal)}
+.gear-layout{display:grid;gap:60px}
+@media(min-width:900px){.gear-layout{grid-template-columns:1fr 1fr;gap:80px;align-items:center}}
+.gear-visual{position:relative;aspect-ratio:1/1.1;background:var(--coal-2);border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.gear-visual::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(212,245,66,.12), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(200,75,31,.15), transparent 50%);
+}
+.gear-items{position:absolute;inset:40px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gear-item{
+  background:rgba(14,14,12,.7);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:14px;
+  padding:18px;display:flex;flex-direction:column;justify-content:space-between;
+  transition:transform .3s, border-color .3s;
+}
+.gear-item:hover{transform:translateY(-4px);border-color:var(--acid)}
+.gear-icon{font-size:2rem;color:var(--acid)}
+.gear-item h4{font-family:'Anton',sans-serif;font-size:1.1rem;text-transform:uppercase;margin-top:auto}
+.gear-item span{font-size:.78rem;opacity:.7;margin-top:4px}
+
+.gear-text h2{margin-bottom:32px}
+.safety-list{display:flex;flex-direction:column;gap:20px;margin-top:32px}
+.safety-item{display:flex;gap:18px;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.safety-item:last-child{border-bottom:none}
+.safety-num{font-family:'JetBrains Mono',monospace;color:var(--rust);font-size:.85rem;flex-shrink:0;padding-top:2px}
+.safety-item h4{font-weight:600;font-size:1.05rem;margin-bottom:4px}
+.safety-item p{color:var(--text-soft);font-size:.92rem}
+
+/* ============ INSTRUCTOR / OWNER ============ */
+.instructor{background:var(--bone);color:var(--coal);padding:120px 0;position:relative;overflow:hidden}
+.instructor::before{
+  content:"OWNER × INSTRUCTOR";
+  position:absolute;
+  top:60px;right:-30px;
+  font-family:'Anton',sans-serif;
+  font-size:clamp(4rem,11vw,9rem);
+  color:rgba(14,14,12,.04);
+  letter-spacing:.05em;
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+}
+.instructor-layout{display:grid;gap:60px;position:relative;z-index:1}
+@media(min-width:900px){.instructor-layout{grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}}
+
+.instructor-img{
+  aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+  background:linear-gradient(135deg,#1a1a14 0%,var(--rust) 50%,var(--mud) 100%);
+  position:relative;
+  box-shadow:0 30px 80px rgba(14,14,12,.25);
+}
+/* Силуэт мотоциклиста */
+.instructor-img svg.silhouette{
+  position:absolute;inset:0;width:100%;height:100%;
+}
+.instructor-img-grain{
+  position:absolute;inset:0;pointer-events:none;opacity:.15;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.instructor-img-badge{
+  position:absolute;bottom:24px;left:24px;
+  background:var(--coal);color:var(--acid);
+  padding:14px 18px;border-radius:14px;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.05em;
+  z-index:2;
+  display:flex;flex-direction:column;gap:2px;
+}
+.instructor-img-badge strong{
+  display:block;
+  font-family:'Anton',sans-serif;font-size:1.1rem;font-weight:400;
+  letter-spacing:.04em;color:var(--bone);
+}
+/* «Печать» — двойная роль */
+.instructor-stamp{
+  position:absolute;top:24px;right:24px;
+  width:120px;height:120px;
+  background:var(--coal);color:var(--acid);
+  border:2px solid var(--acid);border-radius:50%;
+  display:grid;place-items:center;text-align:center;
+  font-family:'Anton',sans-serif;font-size:.85rem;letter-spacing:.04em;line-height:1;
+  transform:rotate(-12deg);
+  z-index:2;
+  padding:14px;
+}
+.instructor-stamp::before{
+  content:"";position:absolute;inset:6px;
+  border:1px dashed rgba(212,245,66,.4);border-radius:50%;
+}
+.instructor-stamp span{display:block;text-transform:uppercase;font-size:.78rem;line-height:1.15}
+.instructor-stamp .big{font-size:1.5rem;color:var(--bone);margin:6px 0;font-family:'Anton',sans-serif}
+
+.instructor-text .section-tag{color:var(--rust)}
+.instructor-text h2{
+  color:var(--coal);
+  font-family:'Anton',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,3.8rem);
+  line-height:.95;margin-bottom:28px;text-transform:uppercase;
+}
+.instructor-text h2 .accent{color:var(--rust)}
+.instructor-text > p{font-size:1.05rem;color:rgba(14,14,12,.78);margin-bottom:24px;max-width:580px}
+
+/* Подпись и автограф */
+.signature-block{
+  display:flex;align-items:center;gap:20px;
+  padding:18px 0 28px;
+  border-top:1px solid rgba(14,14,12,.15);
+  border-bottom:1px solid rgba(14,14,12,.15);
+  margin:32px 0;
+  flex-wrap:wrap;
+}
+.signature{
+  font-family:'Caveat',cursive;font-weight:600;
+  font-size:2.4rem;color:var(--rust);
+  line-height:1;letter-spacing:-.01em;
+  transform:rotate(-3deg);
+}
+.signature-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  opacity:.6;line-height:1.5;
+}
+.signature-meta strong{display:block;color:var(--coal);opacity:1;font-size:.78rem}
+
+.utp-list{display:grid;gap:1px;background:rgba(14,14,12,.18);border:1px solid rgba(14,14,12,.18);border-radius:18px;overflow:hidden}
+.utp{background:var(--bone);padding:22px 24px;display:flex;gap:18px;align-items:center;transition:background .2s}
+.utp:hover{background:#EAE6DA}
+.utp-icon{width:40px;height:40px;background:var(--coal);color:var(--acid);display:grid;place-items:center;border-radius:10px;font-family:'Anton',sans-serif;font-size:1.1rem;flex-shrink:0}
+.utp p{font-weight:500;font-size:.98rem}
+
+/* ============ CTA + FORM ============ */
+.cta-section{
+  background:var(--coal);position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:"RIDE";position:absolute;
+  font-family:'Anton',sans-serif;
+  font-size:clamp(20rem,40vw,50rem);
+  color:var(--coal-2);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:0;letter-spacing:.05em;line-height:.8;
+  pointer-events:none;
+  user-select:none;
+}
+.cta-layout{position:relative;z-index:2;display:grid;gap:60px}
+@media(min-width:900px){.cta-layout{grid-template-columns:1fr 1.1fr;align-items:center}}
+.cta-text h2{font-size:clamp(2.6rem,6vw,5rem);margin-bottom:24px}
+.cta-text h2 .acid{color:var(--acid)}
+.cta-text p{color:var(--text-soft);margin-bottom:32px;font-size:1.05rem;max-width:480px}
+.cta-perks{display:flex;flex-direction:column;gap:14px}
+.cta-perk{display:flex;gap:12px;align-items:center;font-size:.95rem}
+.cta-perk::before{content:"✓";color:var(--acid);font-weight:700}
+
+.form-card{
+  background:var(--coal-2);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:40px 36px;
+  position:relative;
+  overflow:hidden;
+}
+.form-card::before{
+  content:"";position:absolute;top:-2px;left:-2px;right:-2px;height:3px;
+  background:linear-gradient(90deg,var(--acid),var(--rust),var(--acid));
+  background-size:200% 100%;
+  animation:gradMove 4s linear infinite;
+}
+@keyframes gradMove{from{background-position:0 0}to{background-position:200% 0}}
+.form-card h3{font-family:'Anton',sans-serif;font-size:1.8rem;text-transform:uppercase;margin-bottom:8px}
+.form-card > p{color:var(--text-soft);margin-bottom:28px;font-size:.92rem}
+.field{margin-bottom:18px;position:relative}
+.field label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--coal);
+  border:1px solid var(--line);
+  color:var(--bone);
+  padding:14px 16px;border-radius:10px;
+  font-family:inherit;font-size:1rem;
+  transition:border-color .2s, background .2s;
+  min-height:48px;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--acid);background:#1a1a14}
+.field input:invalid:not(:placeholder-shown){border-color:var(--rust)}
+.field textarea{resize:vertical;min-height:90px}
+.checkbox{display:flex;align-items:flex-start;gap:10px;margin:20px 0 24px;font-size:.82rem;color:var(--text-soft);cursor:pointer}
+.checkbox input{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:var(--acid)}
+.btn-submit{width:100%;justify-content:center;font-size:1.05rem;padding:20px}
+
+.success-state{text-align:center;padding:40px 20px}
+.success-state .big{font-family:'Anton',sans-serif;font-size:3rem;color:var(--acid);margin-bottom:16px}
+.success-state p{color:var(--text-soft);margin-bottom:24px}
+.success-state .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ============ FAQ ============ */
+.faq{background:var(--coal-2)}
+.faq-list{max-width:880px;margin:0 auto}
+.faq-item{border-top:1px solid var(--line);padding:0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;text-align:left;padding:28px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  font-family:'Anton',sans-serif;font-size:clamp(1.1rem,2vw,1.5rem);
+  text-transform:uppercase;letter-spacing:.02em;
+  transition:color .2s;
+  list-style:none;
+  cursor:pointer;
+}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q:hover{color:var(--acid)}
+.faq-toggle{
+  width:36px;height:36px;border:1px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;flex-shrink:0;
+  font-size:1.2rem;transition:transform .3s,background .2s,color .2s;
+}
+.faq-item[open] .faq-toggle{transform:rotate(45deg);background:var(--acid);color:var(--coal);border-color:var(--acid)}
+.faq-a{padding:0 60px 28px 0;color:var(--text-soft);font-size:1rem;line-height:1.65}
+
+/* ============ FOOTER ============ */
+footer{background:var(--coal);padding:80px 0 40px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;gap:40px;grid-template-columns:1.4fr 1fr 1fr 1fr}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.foot-grid{grid-template-columns:1fr}}
+.foot-col h5{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acid);margin-bottom:18px}
+.foot-col a, .foot-col p{display:block;font-size:.95rem;color:var(--text-soft);margin-bottom:10px;transition:opacity .2s}
+.foot-col a:hover{opacity:1;color:var(--acid)}
+.foot-about p{font-size:.92rem;line-height:1.6;margin-top:12px}
+.foot-tagline{
+  font-family:'Caveat',cursive;font-weight:600;
+  font-size:1.4rem;color:var(--acid);
+  margin-top:8px !important;
+  transform:rotate(-1.5deg);display:inline-block !important;
+}
+.socials{display:flex;gap:10px;margin-top:18px}
+.socials a{
+  width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;opacity:.9;transition:all .2s;
+  margin:0;
+}
+.socials a:hover{background:var(--acid);color:var(--coal);border-color:var(--acid);transform:translateY(-3px)}
+.copyright{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:.82rem;opacity:.65;font-family:'JetBrains Mono',monospace}
+
+/* ============ FLOATING ACTIONS ============ */
+.float-actions{
+  position:fixed;right:20px;bottom:20px;z-index:50;
+  display:flex;flex-direction:column;gap:12px;
+}
+.float-btn{
+  width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--acid);color:var(--coal);
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  transition:transform .25s, opacity .3s;font-size:1.1rem;font-weight:700;
+  font-family:'Space Grotesk',sans-serif;
+}
+.float-btn.tg{background:#229ED9;color:white}
+.float-btn.wa{background:#25D366;color:white}
+.float-btn:hover{transform:scale(1.1) rotate(-5deg)}
+.float-btn.up{background:var(--coal-2);color:var(--bone);border:1px solid var(--line);font-size:1.4rem;opacity:0;pointer-events:none}
+.float-btn.up.show{opacity:1;pointer-events:auto}
+
+/* ============ MOBILE NAV ============ */
+.mobile-menu{
+  position:fixed;inset:0;z-index:200;
+  background:var(--coal);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:32px;
+  transform:translateY(-100%);transition:transform .4s ease;
+}
+.mobile-menu.open{transform:none}
+.mobile-menu a{font-family:'Anton',sans-serif;font-size:2rem;text-transform:uppercase}
+.mobile-menu .close{position:absolute;top:24px;right:24px;font-size:2rem;width:48px;height:48px;display:grid;place-items:center}
+
+/* ============ SCROLL ANIM ============ */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Главная навигация">
+  <a href="#top" class="logo" aria-label="RentalMoto — на главную">
+    <div class="logo-mark" aria-hidden="true">RM</div>
+    <div class="logo-text">
+      <span>RentalMoto</span>
+      <small>№04 / since 2022</small>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Услуги</a>
+    <a href="#routes">Маршруты</a>
+    <a href="#gear">Экипировка</a>
+    <a href="#instructor">Кто я</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#booking" class="nav-cta">Записаться →</a>
+  <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mm">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mm" aria-hidden="true">
+  <button class="close" id="mmClose" aria-label="Закрыть меню">✕</button>
+  <a href="#services" data-mm-link>Услуги</a>
+  <a href="#routes" data-mm-link>Маршруты</a>
+  <a href="#gear" data-mm-link>Экипировка</a>
+  <a href="#instructor" data-mm-link>Кто я</a>
+  <a href="#faq" data-mm-link>FAQ</a>
+  <a href="#booking" class="btn btn-primary" data-mm-link>Записаться</a>
+</div>
+
+<!-- HERO -->
+<header id="top"></header>
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-noise" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag mono">
+        <span>4-й сезон в эндуро</span>
+      </div>
+      <h1 id="heroTitle" class="display">
+        Грязь.<br>
+        <span class="acid">Скорость.</span><br>
+        <span class="outline">Свобода.</span>
+      </h1>
+      <p class="hero-sub">Эндуро тренировки и прокат с инструктором. Полная экипировка, эксклюзивные маршруты, обучение с нуля для взрослых и детей. Приехал — сел — поехал.</p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn btn-primary">Записаться на тренировку <span class="btn-arrow" aria-hidden="true">↗</span></a>
+        <a href="#routes" class="btn btn-ghost">Смотреть маршруты</a>
+      </div>
+
+      <div class="owner-note">
+        <div class="owner-note-mark" aria-hidden="true">RM</div>
+        <p>
+          <strong>Слово хозяина</strong>
+          Это не сеть и не аренда «по талону». Я сам владею мотоциклами, сам экипирую и сам везу в маршрут.
+        </p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">04</div><div class="stat-lbl">Года опыта</div></div>
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Учеников</div></div>
+      <div class="stat"><div class="stat-num">15</div><div class="stat-lbl">Маршрутов</div></div>
+    </div>
+  </div>
+
+  <svg class="hero-bike" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Эндуро мотоцикл">
+    <defs>
+      <linearGradient id="bikeG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#D4F542"/>
+        <stop offset="1" stop-color="#C84B1F"/>
+      </linearGradient>
+    </defs>
+    <circle cx="120" cy="240" r="80" fill="none" stroke="#0E0E0C" stroke-width="20"/>
+    <circle cx="120" cy="240" r="80" fill="none" stroke="#15150F" stroke-width="14"/>
+    <circle cx="120" cy="240" r="30" fill="#0E0E0C"/>
+    <circle cx="120" cy="240" r="8" fill="#D4F542"/>
+    <circle cx="480" cy="240" r="80" fill="none" stroke="#0E0E0C" stroke-width="20"/>
+    <circle cx="480" cy="240" r="80" fill="none" stroke="#15150F" stroke-width="14"/>
+    <circle cx="480" cy="240" r="30" fill="#0E0E0C"/>
+    <circle cx="480" cy="240" r="8" fill="#D4F542"/>
+    <path d="M150 200 Q220 110 290 130 L380 130 Q420 130 440 180 L460 220" stroke="url(#bikeG)" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <path d="M290 130 L260 200 L150 200" stroke="#F2EFE6" stroke-width="10" fill="none" stroke-linecap="round" opacity=".9"/>
+    <path d="M280 100 Q310 70 380 80 L390 130 L290 130 Z" fill="#D4F542"/>
+    <path d="M310 95 L370 95" stroke="#0E0E0C" stroke-width="3"/>
+    <path d="M210 140 Q260 125 300 130 L290 150 L210 155 Z" fill="#0E0E0C"/>
+    <path d="M400 60 L460 100" stroke="#0E0E0C" stroke-width="10" stroke-linecap="round"/>
+    <path d="M390 50 L420 65" stroke="#F2EFE6" stroke-width="8" stroke-linecap="round"/>
+    <path d="M460 100 L480 240" stroke="#15150F" stroke-width="8"/>
+    <path d="M250 170 Q220 170 200 180 L150 200" stroke="#C84B1F" stroke-width="6" fill="none"/>
+    <g opacity=".6">
+      <circle cx="60" cy="280" r="6" fill="#5C4A33"/>
+      <circle cx="40" cy="260" r="4" fill="#5C4A33"/>
+      <circle cx="540" cy="290" r="5" fill="#5C4A33"/>
+      <circle cx="560" cy="270" r="3" fill="#5C4A33"/>
+    </g>
+  </svg>
+
+  <div class="scroll-cue mono" aria-hidden="true">scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>ENDURO</span><span class="dot">●</span>
+    <span class="acid">Обучение с нуля</span><span class="dot">●</span>
+    <span>Полная экипировка</span><span class="dot">●</span>
+    <span class="acid">15 маршрутов</span><span class="dot">●</span>
+    <span>Дети от 8 лет</span><span class="dot">●</span>
+    <span class="acid">4-й сезон</span><span class="dot">●</span>
+    <span>ENDURO</span><span class="dot">●</span>
+    <span class="acid">Обучение с нуля</span><span class="dot">●</span>
+    <span>Полная экипировка</span><span class="dot">●</span>
+    <span class="acid">15 маршрутов</span><span class="dot">●</span>
+    <span>Дети от 8 лет</span><span class="dot">●</span>
+    <span class="acid">4-й сезон</span><span class="dot">●</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services" aria-labelledby="servicesTitle">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-tag">01 / Услуги</div>
+        <h2 id="servicesTitle" class="section-title">Что выберешь<br><span style="color:var(--acid)">сегодня?</span></h2>
+      </div>
+      <p style="max-width:340px;color:var(--text-soft);font-size:.95rem">Каждый формат включает мотоцикл, экипировку, инструктора и сопровождение по маршруту. Никаких скрытых доплат.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <article class="service">
+        <div class="service-num">01</div>
+        <h3>Групповая тренировка</h3>
+        <p class="service-desc">До 5 человек. Базовая техника, посадка, торможение, прохождение препятствий. Идеально для первого опыта.</p>
+        <div class="service-tags"><span>3-4 часа</span><span>от 14 лет</span><span>обучение</span></div>
+        <div class="service-price"><span>от 7 500 ₽ / чел</span><span class="service-arrow" aria-hidden="true">↗</span></div>
+      </article>
+
+      <article class="service">
+        <div class="service-num">02</div>
+        <h3>Индивидуальная</h3>
+        <p class="service-desc">Один на один с инструктором. Прокачка слабых мест, разбор техники, работа над конкретными задачами.</p>
+        <div class="service-tags"><span>2-5 часов</span><span>любой уровень</span><span>персонально</span></div>
+        <div class="service-price"><span>от 12 000 ₽</span><span class="service-arrow" aria-hidden="true">↗</span></div>
+      </article>
+
+      <article class="service">
+        <div class="service-num">03</div>
+        <h3>Детская группа</h3>
+        <p class="service-desc">Безопасная техника подходящего размера, защита, плавная подача мощности. Ребёнок учится управлять, не теряя интереса.</p>
+        <div class="service-tags"><span>от 8 лет</span><span>спецтехника</span><span>2 часа</span></div>
+        <div class="service-price"><span>от 6 000 ₽ / реб</span><span class="service-arrow" aria-hidden="true">↗</span></div>
+      </article>
+
+      <article class="service">
+        <div class="service-num">04</div>
+        <h3>Корпоративный выезд</h3>
+        <p class="service-desc">Команда от 6 человек. День приключений: тренировка + маршрут + кофе-брейк на природе. Подарочные сертификаты.</p>
+        <div class="service-tags"><span>от 6 чел</span><span>полный день</span><span>под ключ</span></div>
+        <div class="service-price"><span>по запросу</span><span class="service-arrow" aria-hidden="true">↗</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" aria-label="Цифры и доверие">
+  <div class="container">
+    <div class="trust-grid reveal">
+      <div class="trust-item">
+        <div class="trust-num">04</div>
+        <div class="trust-label">Сезона работы</div>
+        <div class="trust-sub">с 2022 года, без перерывов</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">500+</div>
+        <div class="trust-label">Учеников за плечами</div>
+        <div class="trust-sub">от 8 до 62 лет</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">15</div>
+        <div class="trust-label">Эксклюзивных маршрутов</div>
+        <div class="trust-sub">от лёгких до экспертных</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">0</div>
+        <div class="trust-label">Серьёзных травм</div>
+        <div class="trust-sub">безопасность — приоритет №1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTES -->
+<section class="routes" id="routes" aria-labelledby="routesTitle">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-tag">02 / Маршруты</div>
+        <h2 id="routesTitle" class="section-title">Места, куда<br>не доедет машина</h2>
+      </div>
+    </div>
+
+    <ul class="routes-list reveal">
+      <li>
+        <button type="button" class="route" data-route="Лесная петля">
+          <span class="route-num">/01</span>
+          <span class="route-info">
+            <h3>Лесная петля</h3>
+            <p>Грунтовки и пологие тропы через сосновый бор. Идеально для первого выезда — учимся читать поверхность.</p>
+          </span>
+          <span class="route-meta"><span class="diff diff-1">Новичок</span><span class="route-km">22 км</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="route" data-route="Карьеры">
+          <span class="route-num">/02</span>
+          <span class="route-info">
+            <h3>Карьеры</h3>
+            <p>Песок, перепады, подъёмы. Здесь чувствуешь, что мотоцикл живой. Один из любимых маршрутов учеников второго уровня.</p>
+          </span>
+          <span class="route-meta"><span class="diff diff-2">Средний</span><span class="route-km">35 км</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="route" data-route="Речные броды">
+          <span class="route-num">/03</span>
+          <span class="route-info">
+            <h3>Речные броды</h3>
+            <p>Вода, грязь, камни. Маршрут для тех, кто уверенно держит баланс и хочет проверить технику в сложных условиях.</p>
+          </span>
+          <span class="route-meta"><span class="diff diff-3">Продвинутый</span><span class="route-km">48 км</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="route" data-route="Заброшенный военный полигон">
+          <span class="route-num">/04</span>
+          <span class="route-info">
+            <h3>Заброшенный военный полигон</h3>
+            <p>Холмы, бетонные руины, природные трамплины. Эксклюзивный доступ — только наши группы.</p>
+          </span>
+          <span class="route-meta"><span class="diff diff-2">Средний</span><span class="route-km">40 км</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="route" data-route="Горный серпантин">
+          <span class="route-num">/05</span>
+          <span class="route-info">
+            <h3>Горный серпантин</h3>
+            <p>Узкие тропы, виды на долину, технические участки. Готовь камеру — кадры в Instagram гарантированы.</p>
+          </span>
+          <span class="route-meta"><span class="diff diff-3">Продвинутый</span><span class="route-km">62 км</span></span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- GEAR -->
+<section class="gear" id="gear" aria-labelledby="gearTitle">
+  <div class="container">
+    <div class="gear-layout">
+      <div class="gear-text reveal">
+        <div class="section-tag">03 / Экипировка</div>
+        <h2 id="gearTitle" class="section-title">Полный комплект.<br>Ничего не везти.</h2>
+        <p style="color:var(--text-soft);font-size:1.05rem;max-width:480px">Всё с собой брать не нужно. Мотоцикл, защита и инструктаж входят в стоимость любого формата.</p>
+
+        <div class="safety-list">
+          <div class="safety-item">
+            <div class="safety-num">/01</div>
+            <div>
+              <h4>Современная техника</h4>
+              <p>Мотоциклы класса 250-450cc, ежедневное ТО, проверка перед каждым выездом.</p>
+            </div>
+          </div>
+          <div class="safety-item">
+            <div class="safety-num">/02</div>
+            <div>
+              <h4>Брифинг + сопровождение</h4>
+              <p>Инструктаж до выезда, инструктор в группе на связи, хвостовой замыкающий.</p>
+            </div>
+          </div>
+          <div class="safety-item">
+            <div class="safety-num">/03</div>
+            <div>
+              <h4>Страховка и медаптечка</h4>
+              <p>Каждый участник застрахован. С группой едет аптечка, рация, GPS-трекер.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gear-visual reveal" aria-hidden="true">
+        <div class="gear-items">
+          <div class="gear-item">
+            <div class="gear-icon">⛑</div>
+            <div><h4>Шлем кросс</h4><span>с очками-маской</span></div>
+          </div>
+          <div class="gear-item">
+            <div class="gear-icon">🦺</div>
+            <div><h4>Черепаха</h4><span>защита спины и груди</span></div>
+          </div>
+          <div class="gear-item">
+            <div class="gear-icon">🧤</div>
+            <div><h4>Перчатки</h4><span>усиленные ладони</span></div>
+          </div>
+          <div class="gear-item">
+            <div class="gear-icon">🥾</div>
+            <div><h4>Мотоботы</h4><span>защита голени и стопы</span></div>
+          </div>
+          <div class="gear-item">
+            <div class="gear-icon">🦵</div>
+            <div><h4>Наколенники</h4><span>жёсткая чашка</span></div>
+          </div>
+          <div class="gear-item">
+            <div class="gear-icon">👕</div>
+            <div><h4>Джерси</h4><span>дышащая ткань</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR / OWNER -->
+<section class="instructor" id="instructor" aria-labelledby="instructorTitle">
+  <div class="container">
+    <div class="instructor-layout">
+      <figure class="instructor-img reveal" aria-label="Инструктор и владелец RentalMoto на эндуро мотоцикле">
+        <!-- Стилизованный силуэт мотоциклиста -->
+        <svg class="silhouette" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="silG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="rgba(14,14,12,0)"/>
+              <stop offset="1" stop-color="rgba(14,14,12,.85)"/>
+            </linearGradient>
+          </defs>
+          <!-- солнце/свет -->
+          <circle cx="290" cy="120" r="70" fill="rgba(242,239,230,.18)"/>
+          <circle cx="290" cy="120" r="45" fill="rgba(242,239,230,.25)"/>
+          <!-- горизонт -->
+          <path d="M0 340 L400 320 L400 500 L0 500 Z" fill="url(#silG)"/>
+          <!-- мотоциклист -->
+          <g fill="#0E0E0C">
+            <!-- заднее колесо -->
+            <circle cx="120" cy="380" r="42"/>
+            <circle cx="120" cy="380" r="28" fill="rgba(242,239,230,.08)"/>
+            <!-- переднее колесо -->
+            <circle cx="280" cy="380" r="42"/>
+            <circle cx="280" cy="380" r="28" fill="rgba(242,239,230,.08)"/>
+            <!-- рама -->
+            <path d="M140 380 Q180 320 220 320 L260 320 Q280 330 280 380 Z"/>
+            <path d="M165 320 L195 280 L235 280 L260 320 Z"/>
+            <!-- руль / вилка -->
+            <path d="M260 320 L290 250 L320 250" stroke="#0E0E0C" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <!-- наездник -->
+            <!-- ноги -->
+            <path d="M180 320 L195 260 L210 230" stroke="#0E0E0C" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <!-- торс -->
+            <path d="M210 230 L240 180 L270 200" stroke="#0E0E0C" stroke-width="32" fill="none" stroke-linecap="round"/>
+            <!-- руки -->
+            <path d="M260 195 L290 240" stroke="#0E0E0C" stroke-width="14" fill="none" stroke-linecap="round"/>
+            <!-- голова в шлеме -->
+            <ellipse cx="245" cy="160" rx="26" ry="28"/>
+            <!-- козырёк шлема -->
+            <path d="M222 152 L268 145 L270 160 L222 162 Z" fill="#D4F542"/>
+            <!-- акцент на шлеме -->
+            <rect x="225" y="135" width="38" height="6" fill="#D4F542"/>
+          </g>
+          <!-- пыль -->
+          <g fill="rgba(242,239,230,.4)">
+            <circle cx="60" cy="395" r="4"/>
+            <circle cx="80" cy="410" r="3"/>
+            <circle cx="40" cy="420" r="5"/>
+            <circle cx="100" cy="425" r="3"/>
+          </g>
+        </svg>
+        <div class="instructor-img-grain" aria-hidden="true"></div>
+
+        <!-- Печать «двойная роль» -->
+        <div class="instructor-stamp" aria-hidden="true">
+          <span>Owner</span>
+          <span class="big">×</span>
+          <span>Instructor</span>
+        </div>
+
+        <figcaption class="instructor-img-badge">
+          <strong>Алексей К.</strong>
+          <span>// Хозяин &amp; Инструктор</span>
+        </figcaption>
+      </figure>
+
+      <div class="instructor-text reveal">
+        <div class="section-tag">04 / Кто я</div>
+        <h2 id="instructorTitle">Я инструктор. <span class="accent">И хозяин этого проката.</span></h2>
+        <p>4 года в эндуро как инструктор, 12 — за рулём. Подготовил больше 500 учеников от 8 до 62 лет. Не гонюсь за «крутыми трюками» — вкладываюсь в технику и безопасность.</p>
+        <p>Мотоциклы у нас не «прокатные железяки», которые жалко. Это <strong style="color:var(--rust)">мой личный парк</strong> — я знаю каждую за номером, сам делаю ТО и сам решаю, кому её доверить. Поэтому отвечаю и за обучение, и за технику, и за то, как ты вернёшься домой.</p>
+
+        <div class="signature-block">
+          <div class="signature" aria-hidden="true">Алексей</div>
+          <div class="signature-meta">
+            <strong>Главный инструктор</strong>
+            Основатель RentalMoto · 2022
+          </div>
+        </div>
+
+        <div class="utp-list">
+          <div class="utp"><div class="utp-icon" aria-hidden="true">✓</div><p>Индивидуальный темп — никаких «не отставай»</p></div>
+          <div class="utp"><div class="utp-icon" aria-hidden="true">✓</div><p>Обучаю на технике, на которой реально ездят</p></div>
+          <div class="utp"><div class="utp-icon" aria-hidden="true">✓</div><p>Маленькие группы (до 5 человек)</p></div>
+          <div class="utp"><div class="utp-icon" aria-hidden="true">✓</div><p>Видеоразбор после тренировки — по запросу</p></div>
+          <div class="utp"><div class="utp-icon" aria-hidden="true">✓</div><p>Работаю с детьми и взрослыми с нуля</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING / CTA -->
+<section class="cta-section" id="booking" aria-labelledby="bookingTitle">
+  <div class="container">
+    <div class="cta-layout">
+      <div class="cta-text reveal">
+        <div class="section-tag">05 / Бронирование</div>
+        <h2 id="bookingTitle" class="display">Готов <span class="acid">начать?</span></h2>
+        <p>Оставь заявку — свяжемся в течение часа, подберём дату и формат под тебя. Никакой воды и впаривания.</p>
+        <div class="cta-perks">
+          <div class="cta-perk">Ответ в Telegram/WhatsApp в течение 60 минут</div>
+          <div class="cta-perk">Подбор формата под уровень и цели</div>
+          <div class="cta-perk">Скидка 10% за подписку на наши соцсети</div>
+          <div class="cta-perk">Оплата картой, наличными, переводом</div>
+        </div>
+      </div>
+
+      <form class="form-card reveal" id="bookForm" novalidate>
+        <h3>Заявка на тренировку</h3>
+        <p>Заполни 3 поля — остальное обсудим в чате</p>
+
+        <div class="field">
+          <label for="fName">Как тебя зовут</label>
+          <input type="text" id="fName" name="name" required placeholder="Имя" autocomplete="name" minlength="2">
+        </div>
+        <div class="field">
+          <label for="fPhone">Телефон</label>
+          <input type="tel" id="fPhone" name="phone" required placeholder="+7 900 000-00-00" autocomplete="tel" pattern="^[+]?[0-9\s\-\(\)]{10,18}$" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="fFormat">Формат</label>
+          <select id="fFormat" name="format" required>
+            <option value="">Выбери формат</option>
+            <option>Групповая тренировка</option>
+            <option>Индивидуальная</option>
+            <option>Детская группа</option>
+            <option>Детская индивидуальная</option>
+            <option>Корпоративный выезд</option>
+            <option>Не знаю, нужна консультация</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fComment">Комментарий (опционально)</label>
+          <textarea id="fComment" name="comment" placeholder="Опыт, удобные даты, вопросы..."></textarea>
+        </div>
+
+        <label class="checkbox" for="fAgree">
+          <input type="checkbox" id="fAgree" name="agree" required>
+          <span>Согласен на обработку персональных данных и условия <a href="#privacy" style="color:var(--acid)">политики конфиденциальности</a></span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-submit">Забронировать место <span class="btn-arrow" aria-hidden="true">↗</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faqTitle">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-tag">06 / Вопросы</div>
+        <h2 id="faqTitle" class="section-title">Что обычно<br>спрашивают</h2>
+      </div>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary class="faq-q">Нужен ли опыт езды на мотоцикле?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Нет. Большинство наших клиентов приходят с нуля. Первый час — обучение базовой технике на ровной площадке, дальше выходим на простой маршрут.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Что входит в стоимость?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Мотоцикл, полная экипировка (шлем, защита корпуса, наколенники, перчатки, ботинки), работа инструктора, маршрут, страховка, бензин. Никаких доплат на месте.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">С какого возраста берёте детей?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-a">С 8 лет — на детских мотоциклах подходящего размера и мощности. Тренировки проходят отдельно от взрослых, в более спокойном темпе.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Можно ли со своей экипировкой?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Да, но мы всё равно проверим её перед выездом — безопасность важнее экономии. Шлем, защита спины и мотоботы обязательны.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Что если будет плохая погода?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Лёгкий дождь — едем как обычно (это часть эндуро). При шторме или критическом риске — переносим на удобную дату без потерь. Решение принимаем за 12 часов до старта.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Как оплатить и забронировать?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Оставляешь заявку → созваниваемся → бронируешь дату предоплатой 30%. Остаток — на месте картой, наличными или переводом. Возврат при отмене за 48 часов — 100%.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col foot-about">
+        <a href="#top" class="logo" style="margin-bottom:18px" aria-label="RentalMoto — наверх">
+          <div class="logo-mark" aria-hidden="true">RM</div>
+          <div class="logo-text">
+            <span>RentalMoto</span>
+            <small>№04 / since 2022</small>
+          </div>
+        </a>
+        <p>Эндуро тренировки и прокат мотоциклов с 2022 года. Учим, экипируем, везём по лучшим маршрутам.</p>
+        <p class="foot-tagline">— Ride dirty, ride safe.</p>
+        <div class="socials" aria-label="Социальные сети">
+          <a href="javascript:void(0)" aria-label="Instagram">IG</a>
+          <a href="javascript:void(0)" aria-label="Telegram">TG</a>
+          <a href="javascript:void(0)" aria-label="VK">VK</a>
+          <a href="javascript:void(0)" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Навигация</h5>
+        <a href="#services">Услуги</a>
+        <a href="#routes">Маршруты</a>
+        <a href="#gear">Экипировка</a>
+        <a href="#instructor">Кто я</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Контакты</h5>
+        <a href="tel:+79000000000">+7 900 000-00-00</a>
+        <a href="mailto:hello@rentalmoto.ru">hello@rentalmoto.ru</a>
+        <p>Точка старта: уточняется при бронировании</p>
+        <p style="opacity:.65;font-size:.82rem">Ежедневно 09:00–21:00</p>
+      </div>
+      <div class="foot-col">
+        <h5>Документы</h5>
+        <a href="#privacy">Политика конфиденциальности</a>
+        <a href="javascript:void(0)">Договор-оферта</a>
+        <a href="javascript:void(0)">Условия отмены</a>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 RentalMoto. Все права защищены.</span>
+      <span>Сделано с грязью под ногтями</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="float-actions">
+  <button class="float-btn up" id="upBtn" aria-label="Наверх" type="button">↑</button>
+  <a class="float-btn wa" href="https://wa.me/79000000000" aria-label="Написать в WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
+  <a class="float-btn tg" href="https://t.me/rentalmoto" aria-label="Написать в Telegram" target="_blank" rel="noopener noreferrer">T</a>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  // ===== Reveal on scroll =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ===== Nav hide on scroll + back-to-top, через rAF =====
+  const nav = document.getElementById('nav');
+  const upBtn = document.getElementById('upBtn');
+  let lastY = 0, ticking = false;
+
+  function onScroll(){
+    const y = window.scrollY;
+    if (y > 200 && y > lastY) nav.style.transform = 'translateY(-100%)';
+    else nav.style.transform = 'translateY(0)';
+    upBtn.classList.toggle('show', y > 700);
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  upBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ===== Mobile menu =====
+  const mm = document.getElementById('mm');
+  const burger = document.getElementById('burger');
+  const mmClose = document.getElementById('mmClose');
+
+  function openMenu(){
+    mm.classList.add('open');
+    mm.setAttribute('aria-hidden','false');
+    burger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu(){
+    mm.classList.remove('open');
+    mm.setAttribute('aria-hidden','true');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', openMenu);
+  mmClose.addEventListener('click', closeMenu);
+  document.querySelectorAll('[data-mm-link]').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mm.classList.contains('open')) closeMenu();
+  });
+
+  // ===== Toast =====
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+
+  // ===== Routes → comment field =====
+  const commentField = document.getElementById('fComment');
+  document.querySelectorAll('.route').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const route = btn.dataset.route;
+      if (!route) return;
+      const tag = `Маршрут: ${route}`;
+      const existing = commentField.value.trim();
+      if (!existing.includes(tag)) {
+        commentField.value = existing ? `${existing}\n${tag}` : tag;
+      }
+      showToast(`Маршрут «${route}» добавлен в заявку`);
+      const booking = document.getElementById('booking');
+      booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ===== Form submit =====
+  const form = document.getElementById('bookForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Простая ручная валидация для лучших сообщений
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      format: form.format.value,
+      comment: form.comment.value.trim()
+    };
+
+    // TODO: подключить endpoint CRM/Email
+    console.log('Заявка:', data);
+
+    // Заменяем содержимое формы безопасно (без innerHTML присваивания)
+    while (form.firstChild) form.removeChild(form.firstChild);
+    form.setAttribute('aria-live','polite');
+    form.insertAdjacentHTML('beforeend', `
+      <div class="success-state">
+        <div class="big">ПРИНЯТО</div>
+        <p>Свяжемся с тобой в течение 60 минут.<br>А пока — подпишись и получи скидку 10%:</p>
+        <div class="btns">
+          <a href="javascript:void(0)" class="btn btn-primary">Instagram</a>
+          <a href="javascript:void(0)" class="btn btn-ghost">Telegram</a>
+        </div>
+      </div>
+    `);
+  });
+})();
+</script>
+
+</body>
+</html>
